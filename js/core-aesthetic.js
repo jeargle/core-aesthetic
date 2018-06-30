@@ -74,8 +74,6 @@ titleScene = {
                                  {font: '30px Courier',
                                   fill: '#ffffff'});
 
-        // wKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
-        // wKey.onDown.addOnce(this.start, this);
         this.input.keyboard.on('keydown_W', this.start, this);
     },
     update: () => {
@@ -84,8 +82,8 @@ titleScene = {
     extend: {
         start: function() {
             'use strict';
-            game.scene.start('play');
-            game.scene.remove('title');
+            console.log('[TITLE] start');
+            game.scene.switch('title', 'play');
         }
     }
 };
@@ -95,10 +93,7 @@ playScene = {
     create: function() {
         'use strict';
 
-        // this.keyboard = game.input.keyboard;
-
         // Controls
-
         this.input.keyboard.on('keydown_E', this.end, this);
     },
     update: function() {
@@ -108,8 +103,8 @@ playScene = {
     extend: {
         end: function() {
             'use strict';
-            game.scene.start('end');
-            game.scene.remove('play');
+            console.log('[PLAY] end');
+            game.scene.switch('play', 'end')
         }
     }
 };
@@ -140,8 +135,7 @@ endScene = {
         restart: function() {
             'use strict';
             console.log('[END] restart');
-            game.scene.start('title');
-            game.scene.remove('end');
+            game.scene.switch('end', 'title');
         }
     }
 };
