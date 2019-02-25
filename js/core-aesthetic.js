@@ -1,4 +1,4 @@
-var score, bootScene, loadScene, titleScene, playScene, endScene, game
+let score, bootScene, loadScene, titleScene, playScene, endScene, game
 
 score = 0
 
@@ -35,11 +35,10 @@ loadScene = {
     },
     preload: function() {
         'use strict'
-        var loadLbl
 
-        loadLbl = this.add.text(80, 160, 'loading...',
-                                {font: '30px Courier',
-                                 fill: '#ffffff'})
+        this.add.text(80, 160, 'loading...',
+                      {font: '30px Courier',
+                       fill: '#ffffff'})
 
         // Load images
 
@@ -65,14 +64,13 @@ titleScene = {
     },
     create: function() {
         'use strict'
-        var nameLbl, startLbl
 
-        nameLbl = this.add.text(80, 160, 'CORE AESTHETIC',
-                                {font: '50px Courier',
-                                 fill: '#ffffff'})
-        startLbl = this.add.text(80, 240, 'press "W" to start',
-                                 {font: '30px Courier',
-                                  fill: '#ffffff'})
+        this.add.text(80, 160, 'CORE AESTHETIC',
+                      {font: '50px Courier',
+                       fill: '#ffffff'})
+        this.add.text(80, 240, 'press "W" to start',
+                      {font: '30px Courier',
+                       fill: '#ffffff'})
 
         this.input.keyboard.on('keydown_W', this.start, this)
     },
@@ -113,17 +111,16 @@ endScene = {
     key: 'end',
     create: function() {
         'use strict'
-        var scoreLbl, nameLbl, startLbl, wKey
 
-        scoreLbl = this.add.text(600, 10, 'Score: ' + score,
-                                 {font: '30px Courier',
-                                  fill: '#ffffff'})
-        nameLbl = this.add.text(80, 160, 'YOU WIN',
-                                {font: '50px Courier',
-                                 fill: '#ffffff'})
-        startLbl = this.add.text(80, 240, 'press "W" to restart',
-                                 {font: '30px Courier',
-                                  fill: '#ffffff'})
+        this.add.text(600, 10, 'Score: ' + score,
+                      {font: '30px Courier',
+                       fill: '#ffffff'})
+        this.add.text(80, 160, 'YOU WIN',
+                      {font: '50px Courier',
+                       fill: '#ffffff'})
+        this.add.text(80, 240, 'press "W" to restart',
+                      {font: '30px Courier',
+                       fill: '#ffffff'})
 
         this.input.keyboard.on('keydown_W', this.restart, this)
     },
