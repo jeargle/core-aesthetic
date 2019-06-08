@@ -1,4 +1,4 @@
-let score, bootScene, loadScene, titleScene, playScene, endScene, game
+let score, game
 
 score = 0
 
@@ -16,8 +16,6 @@ class BootScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
-
         game.scene.start('load')
         game.scene.remove('boot')
     }
@@ -37,8 +35,6 @@ class LoadScene extends Phaser.Scene {
     }
 
     preload() {
-        'use strict'
-
         this.add.text(80, 160, 'loading...',
                       {font: '30px Courier',
                        fill: '#ffffff'})
@@ -49,7 +45,6 @@ class LoadScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
         game.scene.start('title')
         game.scene.remove('load')
     }
@@ -73,8 +68,6 @@ class TitleScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
-
         this.add.text(80, 160, 'CORE AESTHETIC',
                       {font: '50px Courier',
                        fill: '#ffffff'})
@@ -90,7 +83,6 @@ class TitleScene extends Phaser.Scene {
     }
 
     start() {
-        'use strict'
         console.log('[TITLE] start')
         game.scene.switch('title', 'play')
     }
@@ -102,19 +94,15 @@ class PlayScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
-
         // Controls
         this.input.keyboard.on('keydown_E', this.end, this)
     }
 
     update() {
-        'use strict'
         console.log('[PLAY] update')
     }
 
     end() {
-        'use strict'
         console.log('[PLAY] end')
         game.scene.switch('play', 'end')
     }
@@ -126,8 +114,6 @@ class EndScene extends Phaser.Scene {
     }
 
     create() {
-        'use strict'
-
         this.add.text(600, 10, 'Score: ' + score,
                       {font: '30px Courier',
                        fill: '#ffffff'})
@@ -142,12 +128,10 @@ class EndScene extends Phaser.Scene {
     }
 
     update() {
-        'use strict'
         console.log('[END] update')
     }
 
     restart() {
-        'use strict'
         console.log('[END] restart')
         game.scene.switch('end', 'title')
     }
